@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-autowire="byName">
-    <bean id="employeeDao" class="ua.goit.example.springMvc.dao.hibernate.HEmployeeDao"/>
-    <bean id="employeeService" class="ua.goit.example.springMvc.service.EmployeeService"/>
+    <bean id="employeeDao" class="ua.goit.java.dao.ProductDao"/>
+    <bean id="employeeService" class="ua.goit.java.service.ProductService"/>
 </beans>
