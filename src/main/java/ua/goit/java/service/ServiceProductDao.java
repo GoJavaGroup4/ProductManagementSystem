@@ -30,6 +30,7 @@ public class ServiceProductDao implements ProductDao {
         }
     }
 
+
     @Override
     public List<Product> getAll(Long id) {
         try(Session session=sessionFactory.openSession()) {

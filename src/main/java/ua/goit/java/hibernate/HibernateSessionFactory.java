@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 public class HibernateSessionFactory {
     private static SessionFactory sessionFactory = buildSessionFactory();
 
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateSessionFactory.class);
 
     private static SessionFactory buildSessionFactory() {

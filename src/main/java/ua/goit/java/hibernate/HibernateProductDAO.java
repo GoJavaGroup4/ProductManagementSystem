@@ -29,6 +29,7 @@ public class HibernateProductDAO implements ProductDao {
         }
     }
 
+
     public List<Product> getAll(Long id) {
         try(Session session=sessionFactory.openSession()) {
             return (List<Product>) session.createQuery("FROM Product ").list();

@@ -9,4 +9,5 @@ public interface GenericDao<T, ID> {
 
     T getByID(ID id);
     List<T> getAll(ID id);
+
 }
