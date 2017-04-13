@@ -7,17 +7,18 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BasicDao<PK extends Serializable, T> {
      
-    private final Class<T> persistentClass;
-     
+	private final Class<T> persistentClass;
+    
     @SuppressWarnings("unchecked")
     public BasicDao() {
         this.persistentClass =(Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
     }
      
+    @Autowired 
     private SessionFactory sessionFactory;
  
     protected Session getSession() {
@@ -34,44 +35,27 @@ public abstract class BasicDao<PK extends Serializable, T> {
     }
 	    
     public T getById(PK key) {
-    	Transaction	tx = getSession().beginTransaction();
-    	T entity = (T) getSession().get(persistentClass, key);
-    	tx.commit();
-        return entity; 
+    	return (T) getSession().get(persistentClass, key);
     }
  
     public void save(T entity) {
-    	Transaction	tx = getSession().beginTransaction();
-        getSession().persist(entity);
-        tx.commit();
+    	getSession().persist(entity);
     }
     
     public void delete(T entity) {
-    	Transaction	tx = getSession().beginTransaction();
-        getSession().delete(entity);
-        tx.commit();
+    	getSession().delete(entity);
     }
     
     public T get(String propertyName, Object value) {
-    	Transaction	tx = getSession().beginTransaction();
-    	T entity = (T) getSession().createQuery("from " + persistentClass.getName() + " as model where model." + propertyName + " = ?").setParameter(0, value).getSingleResult();
-    	tx.commit();
-        return entity; 
+    	return (T) getSession().createQuery("from " + persistentClass.getName() + " as model where model." + propertyName + " = ?").setParameter(0, value).getSingleResult(); 
 	}
     
     public List<T> list() {
-        //return createEntityCriteria().list();
-    	Transaction	tx = getSession().beginTransaction();
-    	List<T> list = getSession().createQuery("from " + persistentClass.getName()).getResultList();
-    	tx.commit();
-    	return list;
+    	return getSession().createQuery("from " + persistentClass.getName()).getResultList();
 	}
 	
 	public List<T> getList(String propertyName, Object value) {
-		Transaction	tx = getSession().beginTransaction();
-		List<T> list = getSession().createQuery("from " + persistentClass.getName() + " as model where model." + propertyName + " = ?").setParameter(0, value).getResultList();
-		tx.commit();
-        return list;
+		return getSession().createQuery("from " + persistentClass.getName() + " as model where model." + propertyName + " = ?").setParameter(0, value).getResultList();
 	}   
 	   
     public void flush() {  
