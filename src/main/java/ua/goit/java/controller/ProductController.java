@@ -23,23 +23,24 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @RequestMapping(value="products",method= RequestMethod.GET)
-    public String getAll(Model model){
-        model.addAttribute("product",new Product());
-        model.addAttribute("productList",this.productService.getAll());
+    @RequestMapping(value = "products", method = RequestMethod.GET)
+    public String getAll(Model model) {
+        model.addAttribute("product", new Product());
+        model.addAttribute("productList", this.productService.getAll());
         return "products";
     }
 
+
     @RequestMapping("edit/{id}")
-    public String editProduct (@PathVariable("id") long id, Model model){
-        model.addAttribute("product",this.productService.getByID(id));
-        model.addAttribute("productList",this.productService.getAll());
+    public String editProduct(@PathVariable("id") long id, Model model) {
+        model.addAttribute("product", this.productService.getByID(id));
+        model.addAttribute("productList", this.productService.getAll());
         return "products";
     }
 
     @RequestMapping("productdata/{id}")
-    public String productData(@PathVariable("id") long id,Model model){
-        model.addAttribute("product",this.productService.getByID(id));
+    public String productData(@PathVariable("id") long id, Model model) {
+        model.addAttribute("product", this.productService.getByID(id));
         return "productdata";
     }
 }

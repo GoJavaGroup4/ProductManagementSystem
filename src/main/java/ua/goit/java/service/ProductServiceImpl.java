@@ -19,7 +19,6 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public Product getByID(long id) {
         return this.productDao.getByID(id);
-
     }
 
     @Override

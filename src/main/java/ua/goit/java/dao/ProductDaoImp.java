@@ -26,6 +26,7 @@ public class ProductDaoImp implements ProductDao {
     }
 
 
+
     @Override
     @SuppressWarnings("unchecked")
     public List<Product> getAll() {

@@ -10,5 +10,6 @@ import java.util.List;
 public interface ProductService {
     Product getByID(long id);
 
+
     List<Product> getAll();
 }
