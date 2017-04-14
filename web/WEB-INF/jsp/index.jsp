@@ -4,7 +4,8 @@
     <title>Title</title>
 </head>
 <body>
-
-</button>
+<br/>
+<a href="/products" target="_blank">Products list</a>
+<br/>
 </body>
 </html>
