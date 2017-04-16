@@ -25,7 +25,11 @@ public class ProductDaoImp implements ProductDao {
         return product;
     }
 
-
+    public void update(Product product) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.update(product);
+        LOGGER.info("Product was successfully updated. " + product);
+    }
 
     @Override
     @SuppressWarnings("unchecked")
