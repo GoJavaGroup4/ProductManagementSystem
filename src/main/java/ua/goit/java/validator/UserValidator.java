@@ -32,10 +32,10 @@ public class UserValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		User user = (User) target;
 
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "Required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Required");
 
 		if (userService.findUserByName(user.getUsername()) != null) {
-			errors.rejectValue("userName", "Duplicate.userForm.username");
+			errors.rejectValue("username", "Duplicate.userForm.username");
 		}
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
