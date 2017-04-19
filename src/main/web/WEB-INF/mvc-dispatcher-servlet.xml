@@ -1,3 +1,4 @@
+<!--
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -16,13 +17,13 @@
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        &lt;!&ndash;<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>&ndash;&gt;
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
 
-    <!--Database Information-->
+    &lt;!&ndash;Database Information&ndash;&gt;
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -31,10 +32,10 @@
         <property name="password" value="root"/>
     </bean>
 
-    <!--Hibernate 4 SessionFactory Bean definition-->
+    &lt;!&ndash;Hibernate 4 SessionFactory Bean definition&ndash;&gt;
     <bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <!--<property name="packagesToScan" value="ua.goit.java.model"/>model-->
+        &lt;!&ndash;<property name="packagesToScan" value="ua.goit.java.model"/>model&ndash;&gt;
         <property name="annotatedClasses">
 
             <list>
@@ -49,7 +50,7 @@
         </property>
     </bean>
 
-    <!--BookDao and BookService Beans-->
+    &lt;!&ndash;BookDao and BookService Beans&ndash;&gt;
     <bean id="productDao" class="ua.goit.java.dao.ProductDaoImp">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
@@ -68,4 +69,4 @@
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
 
-</beans>
+</beans>-->

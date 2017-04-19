@@ -1,7 +1,6 @@
 package ua.goit.java.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +16,7 @@ import ua.goit.java.service.ProductService;
 public class ProductController {
     private ProductService productService;
 
-    @Autowired(required = true)
-    @Qualifier(value = "productService")
+    @Autowired
     public void setProductService(ProductService productService) {
         this.productService = productService;
     }
