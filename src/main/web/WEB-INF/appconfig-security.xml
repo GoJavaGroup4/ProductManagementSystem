@@ -24,7 +24,7 @@
 	</authentication-manager>
 
 	<beans:bean id="userDetailServiceImpl"
-		class="ua.thekid.springsecurityapp.service.UserDetailsServiceImpl"/>
+		class="ua.goit.java.service.UserDetailsServiceImp"/>
 
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
