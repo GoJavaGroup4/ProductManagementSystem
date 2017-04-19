@@ -32,6 +32,7 @@
         <param-value>
             WEB-INF/application-context.xml
             WEB-INF/hibernate-context.xml
+			WEB-INF/appconfig-security.xml
         </param-value>
     </context-param>
 </web-app>
