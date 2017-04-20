@@ -16,7 +16,7 @@ public class UserDao {
 	@Transactional
 	public User findByUsername(String username) {
 		List<User> users = sessionFactory.getCurrentSession().
-			createQuery("select User from users").list();
+			createQuery("from User").list();
 		User userToFind = null;
 		for (User user : users) {
 			if (user.getUsername().equals(username)) {
